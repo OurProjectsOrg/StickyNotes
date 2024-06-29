@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Sticky Notes";
+}
+
+@model List<StickyNote>
+
+
+<div class="text-center">
+    <h1 class="display-4">Sticky Notes</h1>
+    <i>You are logged in as guest </i>
+    <br />
+    <div>
+        <a asp-action="CreateStickyNote" class="btn btn-primary mt-4">Create Note</a>
+        <a class="btn btn-primary mt-4">Create Category</a>
+        <a class="btn btn-primary mt-4">Delete Note</a>
+        <a class="btn btn-primary mt-4">Update Note</a>
+    </div>
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Category
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Created By
+                </th>
+                <th>
+                    Created Date
+                </th>
+                <th>
+                    Last updated
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach(var note in Model)
+                {
+                    <tr>
+                        <td>
+                            @note.Id
+                        </td>
+                        <td>
+                            @note.title
+                        </td>
+                        <td>
+                            @note.category
+                        </td>
+                        <td>
+                            @note.description
+                        </td>
+                        <td>
+                            @note.createdBy
+                        </td>
+                        <td>
+                            @note.createdDate
+                        </td>
+                        <td>
+                            @note.updated
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
