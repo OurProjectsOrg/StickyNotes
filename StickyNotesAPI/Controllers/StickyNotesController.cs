@@ -20,7 +20,7 @@ namespace StickyNotesAPI.Controllers
         [HttpGet]
         public IActionResult GetAllStickyNotes()
         {
-            var allStickyNotes = _context.StickyNote.ToList();
+            var allStickyNotes = _context.stickyNote.ToList();
             return Ok(allStickyNotes);
         }
 
@@ -40,7 +40,7 @@ namespace StickyNotesAPI.Controllers
                     updated = addStickyNoteDto.Updated
                 };
 
-                _context.StickyNote.Add(stickyNote);
+                _context.stickyNote.Add(stickyNote);
                 _context.SaveChanges();
 
                 return Ok(stickyNote);

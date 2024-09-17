@@ -28,6 +28,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=StickyNotes}/{id?}");
+    pattern: "{controller=StickyNotes}/{action=Login}/{id?}");
 
 app.Run();

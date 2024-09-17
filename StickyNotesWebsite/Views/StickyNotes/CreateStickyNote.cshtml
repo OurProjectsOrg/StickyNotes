@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Create Sticky Note";
+}
+
+@model StickyNotesWebsite.Models.ViewModels.StickyNoteViewModel
+
+@{
+    <div class="text-center">
+        <h1 class="display-4">Create Sticky Note</h1>
+    </div>
+
+    <form asp-action="UserAction_CreateStickyNote">
+        <label class="mt-4">Title</label>
+        <input class="form-control" type="text" asp-for="title" />
+        <label class="mt-4">Category</label>
+        <input class="form-control" type="select" asp-for="SelectedCategory" />
+        <label class="mt-4">Description</label>
+        <textarea class="form-control" type="text" asp-for="description"></textarea>
+        <button asp-action="StickyNotes" class="btn btn-primary mt-4">Back</button>
+        <button class="btn btn-primary mt-4" type="submit">Create Note</button>
+    </form>
+
+}
+
+@{
+    if (ViewBag.SuccessMessage != null)
+    {
+        <div>
+            @ViewBag.SuccessMessage
+        </div>
+    }
+}
+<script>
+    function submitForm() {
+        var frm = document.getElementById('createCategoryForm');
+        frm.submit(); // Submit the form
+        frm.reset();  // Reset all form data
+        return false; // Prevent page refresh
+    }
+
+    function Reset() {
+        document.getElementById("createCategoryForm").reset();
+    }

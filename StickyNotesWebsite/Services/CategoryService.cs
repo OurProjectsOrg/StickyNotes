@@ -4,12 +4,11 @@ using System.Text;
 
 namespace StickyNotesWebsite.Services
 {
-    public static class StickyNotesService
+    public static class CategoryService
     {
-        // GET: Returns all sticky notes in database
-        internal static async Task<List<StickyNote>> ReturnAllStickyNote(IConfiguration _config)
+        internal static async Task<List<Category>> ReturnAllCategories(IConfiguration _config)
         {
-            var apiUrl = _config["APIEndpoints:DefaultStickyNoteEndpoint"];
+            var apiUrl = _config["APIEndpoints:DefaultCategoryEndpoint"];
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri(apiUrl);
@@ -19,26 +18,26 @@ namespace StickyNotesWebsite.Services
                 HttpResponseMessage response = await client.GetAsync(apiUrl);
                 if (response.IsSuccessStatusCode)
                 {
-                    var mySitckyNoteList = JsonConvert.DeserializeObject<List<StickyNote>>(
+                    var categoriesList = JsonConvert.DeserializeObject<List<Category>>(
                          await response.Content.ReadAsStringAsync());
 
-                    return mySitckyNoteList;
+                    return categoriesList;
                 }
                 else
                 {
-                    return new List<StickyNote>();
+                    return new List<Category>();
                 }
             }
         }
 
-        internal static async Task<bool> CreateStickyNote(StickyNote stickyNote, IConfiguration _config)
+
+        internal static async Task<bool> CreateCategory(Category category, IConfiguration _config)
         {
-            stickyNote.createdDate = DateTime.Now;
-            stickyNote.createdBy = "Guest";
-            stickyNote.updated = DateTime.Now;
-            var json = JsonConvert.SerializeObject(stickyNote); // or JsonSerializer.Serialize if using System.Text.Json
+            category.createdDate = DateTime.Now;
+            category.createdBy = "Guest";
+            var json = JsonConvert.SerializeObject(category); // or JsonSerializer.Serialize if using System.Text.Json
             var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json"); // use MediaTypeNames.Application.Json in Core 3.0+ and Standard 2.1+
-            var apiUrl = _config["APIEndpoints:DefaultStickyNoteEndpoint"];
+            var apiUrl = _config["APIEndpoints:DefaultCategoryEndpoint"];
             using (HttpClient client = new HttpClient())
             {
                 var response = await client.PostAsync(apiUrl, stringContent);
@@ -55,8 +54,3 @@ namespace StickyNotesWebsite.Services
 
     }
 }
-
-
-
-
-

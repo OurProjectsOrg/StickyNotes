@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Create Category";
+}
+
+@model StickyNotesWebsite.Models.Category
+
+@{
+    <div class="text-center">
+        <h1 class="display-4">Create Category</h1>
+    </div>
+}
+
+<form id="createCategoryForm" asp-action="UserAction_CreateCategory">
+    <label class="mt-4">Category Name</label>
+    <input class="form-control" type="text" asp-for="category" />
+    <label class="mt-4">Description</label>
+    <textarea class="form-control" type="text" asp-for="description"></textarea>
+    <button asp-action="StickyNotes" class="btn btn-primary mt-4">Back</button>
+@*     <button class="btn btn-primary mt-4" type="submit">Create Category</button> *@
+    <input class="btn btn-primary mt-4" type="button" value="Submit" id="btnsubmit" onclick="submitForm()">
+</form>
+
+@{
+    if (ViewBag.SuccessMessage != null)
+    {
+        <div>
+            @ViewBag.SuccessMessage
+        </div>
+    }
+}
+<script>
+    function submitForm() {
+        var frm = document.getElementById('createCategoryForm');
+        frm.submit(); // Submit the form
+        frm.reset();  // Reset all form data
+        return false; // Prevent page refresh
+    }
+
+    function Reset() {
+        document.getElementById("createCategoryForm").reset();
+    }
+
+</script>
