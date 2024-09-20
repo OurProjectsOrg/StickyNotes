@@ -16,9 +16,4 @@ namespace StickyNotesWebsite.Models
         public DateTime updated { get;set; }
     }
 
-    public class Root
-    {
-        public List<StickyNote> StickyNoteList { get; set; }
-    }
-
 }

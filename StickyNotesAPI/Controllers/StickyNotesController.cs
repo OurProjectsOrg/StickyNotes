@@ -24,6 +24,7 @@ namespace StickyNotesAPI.Controllers
             return Ok(allStickyNotes);
         }
 
+
         [HttpPost]
         public IActionResult AddStickyNote(AddStickyNoteDto addStickyNoteDto)
         {

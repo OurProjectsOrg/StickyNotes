@@ -36,6 +36,7 @@ namespace StickyNotesWebsite.Services
             stickyNote.createdDate = DateTime.Now;
             stickyNote.createdBy = "Guest";
             stickyNote.updated = DateTime.Now;
+            stickyNote.category = "under construction";
             var json = JsonConvert.SerializeObject(stickyNote); // or JsonSerializer.Serialize if using System.Text.Json
             var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json"); // use MediaTypeNames.Application.Json in Core 3.0+ and Standard 2.1+
             var apiUrl = _config["APIEndpoints:DefaultStickyNoteEndpoint"];
