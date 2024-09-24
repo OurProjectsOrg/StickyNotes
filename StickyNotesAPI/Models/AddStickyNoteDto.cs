@@ -14,5 +14,7 @@ namespace StickyNotesAPI.Models
         [Required]
         public string Description { get; set; } = string.Empty;
         public DateTime Updated { get; set; }
+        public string dayCreated { get; set; } = string.Empty;
+
     }
 }

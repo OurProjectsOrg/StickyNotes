@@ -1,30 +1,27 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
 
-namespace StickyNotesWebsite.Models
+namespace StickyNotesWebsite.Models.Notes
 {
-    public class StickyNote
+    public abstract class Card
     {
         public int Id { get; set; }
         [Required]
         public string title { get; set; } = string.Empty;
         [Required]
         public string category { get; set; } = string.Empty;
-        public DateTime createdDate { get; set; }
         public string createdBy { get; set; } = string.Empty;
         [Required]
         public string description { get; set; } = string.Empty;
-        public DateTime updated { get;set; }
-        public string dayCreated { get; set; }
+        public DateTime createdDate { get; set; }
+        public DayOfWeek dayCreated { get; set; }
+        public DateTime updated { get; set; }
 
 
-        public StickyNote()
+        public Card()
         {
-            this.dayCreated = DateTime.Today.DayOfWeek.ToString();
+            this.dayCreated = DateTime.Today.DayOfWeek;
             this.createdDate = DateTime.Now;
             this.updated = DateTime.Now;
-            this.category = "Sticky Note";
-            this.createdBy = "Me";
         }
 
     }

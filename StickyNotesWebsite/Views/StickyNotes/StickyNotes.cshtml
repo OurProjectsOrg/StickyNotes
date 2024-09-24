@@ -5,73 +5,86 @@
 @model List<StickyNote>
 
 
-<div class="text-center">
-    <h1 class="display-4">Sticky Notes</h1>
-    <i>You are logged in as guest </i>
-    <br />
-    <div>
-        <a asp-action="NavigateTo_CreateStickyNotePage" class="btn btn-primary mt-4">Create Note</a>
-        <a asp-action="NavigateTo_CreateCategory" class="btn btn-primary mt-4">Create Category</a>
-        <a class="btn btn-primary mt-4">Delete Note</a>
-        <a class="btn btn-primary mt-4">Update Note</a>
-    </div>
-    <br />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Title
-                </th>
-                <th>
-                    Category
-                </th>
-                <th>
-                    Description
-                </th>
-                <th>
-                    Created By
-                </th>
-                <th>
-                    Created Date
-                </th>
-                <th>
-                    Last updated
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @{
-                foreach(var note in Model)
-                {
-                    <tr>
-                        <td>
-                            @note.Id
-                        </td>
-                        <td>
-                            @note.title
-                        </td>
-                        <td>
-                            @note.category
-                        </td>
-                        <td>
-                            @note.description
-                        </td>
-                        <td>
-                            @note.createdBy
-                        </td>
-                        <td>
-                            @note.createdDate
-                        </td>
-                        <td>
-                            @note.updated
-                        </td>
-                    </tr>
-                }
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="~/css/Hub.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="bg"></div>
+        <div class="nav_Container">
+            <div class="logo_Container">
+                <div class="nav_AppName">
+                    <h1>Personal Planner</h1>
+                </div>
+                @*                 <div class="nav_AppSlogan">
+                <h3>Think. Plan. Do!</h3>
+                </div> *@
+            </div>
+
+            <div class="nav_buttons">
+                <button class="round-6" title="Add a new item to your calender">
+                    <a style="text-decoration: none;color: white" asp-action="NavigateTo_CreateStickyNotePage">&#10010;</a>
+                </button>
+                <button class="round-6" title="Edit an existing item on your calender">&#9998;</button>
+                <button class="round-6" title="Delete an item from your calender">&#10006;</button>
+            </div>
+
+            <div class="nav_Profile">
+                <button class="round-personal bx-lg" title="Your pofile page"> <i class='bx bxs-user'></i></button>
+            </div>
+
+        </div>
+
+        @{
+            DayOfWeek[] days = {
+        DayOfWeek.Sunday,
+        DayOfWeek.Monday,
+        DayOfWeek.Tuesday,
+        DayOfWeek.Wednesday,
+        DayOfWeek.Thursday,
+        DayOfWeek.Friday,
+        DayOfWeek.Saturday };
+        }
+
+        <div class="Week_Container">
+            @foreach (DayOfWeek day in days)
+            {
+                <div class="DayOfTheWeek">
+                    <h3><b>@day.ToString()</b></h3>
+                </div>
             }
-        </tbody>
-    </table>
-</div>
+        </div>
+        <div class="calender_Container">
+            @foreach (DayOfWeek day in days)
+            {
+                <div class="Calender_Column">
+                    @foreach (var note in Model)
+                    {
+                        @if (day.ToString() == note.dayCreated)
+                        {
+                            <div class="card" style="background:#8ca3a3;color:white">
+                                <img src="https://breakingmuscle.com/wp-content/uploads/2015/03/shutterstock218445529.jpg"
+                                     alt="Avatar" style="width:100%">
+                                <div id="card_Details">
+                                    <b>@note.category</b>
+                                    <div class="items">
+                                        @note.title
+                                        <div class="info_Arrow">
+                                            <a>Click for more information</a>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m12 15.586-4.293-4.293-1.414 1.414L12 18.414l5.707-5.707-1.414-1.414z" /><path d="m17.707 7.707-1.414-1.414L12 10.586 7.707 6.293 6.293 7.707 12 13.414z" /></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</body>
+
 

@@ -1,0 +1,253 @@
+﻿@font-face {
+    font-family: "BCTUR";
+    src: url("https://db.onlinewebfonts.com/t/ded6eeb8ece12dd4d49874737fdb2938.eot");
+    src: url("https://db.onlinewebfonts.com/t/ded6eeb8ece12dd4d49874737fdb2938.eot?#iefix")format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/ded6eeb8ece12dd4d49874737fdb2938.woff2")format("woff2"), url("https://db.onlinewebfonts.com/t/ded6eeb8ece12dd4d49874737fdb2938.woff")format("woff"), url("https://db.onlinewebfonts.com/t/ded6eeb8ece12dd4d49874737fdb2938.ttf")format("truetype"), url("https://db.onlinewebfonts.com/t/ded6eeb8ece12dd4d49874737fdb2938.svg#BCTUR")format("svg");
+}
+
+@font-face {
+    font-family: "cinnamon";
+    src: url("https://db.onlinewebfonts.com/t/1cd194e7e10ee17aa8c6bb1524e626b3.eot");
+    src: url("https://db.onlinewebfonts.com/t/1cd194e7e10ee17aa8c6bb1524e626b3.eot?#iefix")format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/1cd194e7e10ee17aa8c6bb1524e626b3.woff2")format("woff2"), url("https://db.onlinewebfonts.com/t/1cd194e7e10ee17aa8c6bb1524e626b3.woff")format("woff"), url("https://db.onlinewebfonts.com/t/1cd194e7e10ee17aa8c6bb1524e626b3.ttf")format("truetype"), url("https://db.onlinewebfonts.com/t/1cd194e7e10ee17aa8c6bb1524e626b3.svg#cinnamon")format("svg");
+}
+
+
+body {
+    margin: 0;
+    height: 100%;
+}
+
+
+.wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+    .wrapper .bg {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        Height: 100vh;
+    }
+
+
+.calender_Container {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    display: inline-flex;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+
+.table_Calender {
+    height: 100%
+}
+
+
+.Week_Container {
+    width: 100%;
+    height: auto;
+    display: inline-flex;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.DayOfTheWeek {
+    width: 14%;
+    text-align: center;
+    color: #7CB9E8;
+    font-size: 20px;
+    text-decoration-line: underline;
+    font-family: "BCTUR";
+}
+
+.Calender_Column {
+    width: 14%;
+    text-align: center;
+    padding-top:20px;
+}
+
+
+
+
+
+.card {
+    box-shadow: 0 4px 8px 0px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    width: 70%;
+    height: auto;
+    margin: auto;
+    margin-bottom: 20px;
+    transition: transform 0.5s;
+    opacity: 1.5;
+    font-family: "BCTUR";
+}
+
+
+.nav_AppName {
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding-left: 20px;
+    font-family: "cinnamon";
+    font-weight: bolder;
+    color: #eca1a6;
+    position: absolute;
+}
+
+.nav_AppSlogan {
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    font-family: "BCTUR";
+    font-weight: bolder;
+    color: #eca1a6;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+.card img {
+    height: 130px;
+}
+
+.card:hover {
+    cursor: pointer;
+    transform: scale(1.1); /* 110% zoom */
+    box-shadow: 0 4px 18px 10px lightblue;
+}
+
+.round-6:hover, .round-personal:hover {
+    transform: scale(1.2); /* 110% zoom */
+    cursor: pointer;
+    overflow: auto;
+}
+
+.card div {
+    text-align: center;
+    vertical-align: top;
+    padding-top: 15px;
+}
+
+.card b {
+    font-size: 150%;
+    font-family: "BCTUR";
+    .card_Details
+
+{
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+}
+
+.items td {
+    text-align: center;
+}
+
+}
+
+/* Add rounded corners to the top left and the top right corner of the image */
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+
+
+
+th {
+    width: 500px;
+    height: 100%;
+}
+
+
+.nav_buttons {
+    width: 70%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.nav_Profile {
+    width: 10%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 15px;
+}
+
+
+
+    .nav_buttons button, .nav_Profile button {
+        background-color: #eca1a6;
+        color: white;
+        border: none;
+        padding: 5px;
+        font-size: 35px;
+        height: 65px;
+        width: 65px;
+        box-shadow: 0 2px 4px darkslategray;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+
+.round-6 {
+    border-radius: 70%;
+    margin-right: 20px;
+}
+
+.round-personal {
+    border-radius: 70%;
+    margin-right: 30px;
+    justify-content: right;
+    font-size: 20px;
+}
+
+.nav_Container {
+    display: flex;
+    position: relative;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 10px 8px 0px rgba(0,0,0,0.2);
+}
+
+.nav {
+    flex: 1;
+}
+
+    .nav :first-child {
+        margin-right: 20px;
+    }
+
+
+.info_arrow {
+    padding: 10px;
+    transition: transform 0.2s ease;
+    display: block;
+    justify-content: center;
+}
+
+    .info_arrow:hover {
+        transform: translateY(-10px);
+    }
+
+.logo_Container {
+    width: 20%;
+}

@@ -38,7 +38,8 @@ namespace StickyNotesAPI.Controllers
                     createdBy = addStickyNoteDto.CreatedBy,
                     createdDate = addStickyNoteDto.CreatedDate,
                     description = addStickyNoteDto.Description,
-                    updated = addStickyNoteDto.Updated
+                    updated = addStickyNoteDto.Updated,
+                    dayCreated = addStickyNoteDto.dayCreated.ToString()
                 };
 
                 _context.stickyNote.Add(stickyNote);
